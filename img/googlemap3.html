@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+        <meta charset="utf-8">
+        <title>Peta Lokasi : Kota Batu</title>
+        
+    </head>
+    <body>
+        <!-- elemen untuk menampilkan peta -->
+        <div id="map" style="width: 100%;height: 800px;"></div>
+        <script>
+            function initMap(){
+                // membuat objek untuk titik koordinat
+                
+                var batu = {lat: -7.870644640085239, lng: 112.52668127647502};
+
+                //membuat objek peta
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 9,
+                    center: batu
+                });
+
+                // membuat konten untuk info window
+                var contentString = '<img src="https://gotripina.com/wp-content/uploads/2020/10/Foto-bianglala-di-alun-alun-Batu-Malang-ig-@acs_phonegrapher.jpg">';
+
+                // membuat objek info window
+                var infowindow = new google.maps.InfoWindow({
+                    content: contentString,
+                    position: new google.maps.LatLng(-7.870644640085239,112.52668127647502)
+                });
+
+                //membuat marker
+			    var marker=new google.maps.Marker({
+			    position: batu,
+			    map: map,
+                animation: google.maps.Animation.BOUNCE
+		        });
+
+                // tampilkan info window pada peta
+                infowindow.open(map);
+            }
+        </script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnpor0ysBYHugiwMo5YyRP1fWEbtq42Dk&callback=initMap"></script>
+        <footer>
+            <p><h1 align="center">Letak Geofrafis Kota Batu</h1></p>
+        </footer>
+    </body>
+</html>
